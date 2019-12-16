@@ -1,0 +1,4 @@
+{
+  "noVersionPrefix": true,
+  "plugins": ["npm", "released"]
+}
