@@ -10,13 +10,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          set
+          cat $GITHUB_EVENT_PATH
           git checkout ${GITHUB_REF:11} --
           git remote rm origin
-          git remote add origin https://$GH_TOKEN@github.com/glambert/auto-lerna-independent-poc
+          git remote add origin https://$GH_TOKEN@github.com/hipstersmoothie/auto-lerna-independent-poc
           git fetch origin --tags
           git branch --set-upstream-to origin/${GITHUB_REF:11} ${GITHUB_REF:11}
-          git config --global user.email "24464151+glambert@users.noreply.github.com"
-          git config --global user.name "Guillaume Lambert"
+          git config --global user.email "24464151+hipstersmoothie@users.noreply.github.com"
+          git config --global user.name "Andrew Lisowski"
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
